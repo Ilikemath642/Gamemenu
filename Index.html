@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Games with AI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="menu" class="game-section active">
+            <h1>Card Games with AI</h1>
+            <p>Blackjack Score: <span id="bj-score">0</span> | Tien Len Wins: <span id="tl-wins">0</span></p>
+            <button class="button" onclick="startGame('blackjack')">Play Blackjack</button>
+            <button class="button" onclick="startGame('tienlen')">Play Tien Len</button>
+            <button class="button" onclick="window.close()">Quit</button>
+        </div>
+        
+        <div id="blackjack" class="game-section">
+            <h2>Blackjack</h2>
+            <div>Dealer's Hand: <div id="dealer-hand"></div></div>
+            <div>Your Hand: <div id="player-hand"></div></div>
+            <p>Player: <span id="player-value">0</span> | Dealer: <span id="dealer-value">?</span></p>
+            <p id="bj-result"></p>
+            <button class="button" id="hit-btn" onclick="playerHit()">Hit</button>
+            <button class="button" id="stand-btn" onclick="playerStand()">Stand</button>
+            <button class="button" onclick="backToMenu()">Back to Menu</button>
+        </div>
+        
+        <div id="tienlen" class="game-section">
+            <h2>Tien Len</h2>
+            <div>AI's Hand: <div id="ai-hand"></div></div>
+            <div>Your Hand: <div id="player-tl-hand" onclick="selectCard(event)"></div></div>
+            <p>Cards Left - You: <span id="player-tl-count">0</span> | AI: <span id="ai-tl-count">0</span></p>
+            <p id="tl-result"></p>
+            <button class="button" onclick="playSelectedCard()">Play Selected</button>
+            <button class="button" onclick="passTurn()">Pass</button>
+            <button class="button" onclick="backToMenu()">Back to Menu</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
